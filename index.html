@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varun Shah — Signal to Insight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-fixed"></div>
+<div class="noise-overlay"></div>
+<div class="signal-cursor" id="cursorGlow"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">VS<span class="mark-dot">•</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow"><span class="signal-dot"></span> Bhubaneswar, Odisha, India</p>
+      <h1 class="hero-title">Varun Shah</h1>
+      <p class="hero-role">Electronics &amp; Telecommunication Engineer<br class="br-mobile"> turned Data &amp; Full-Stack Builder</p>
+      <p class="hero-desc">I spend my time on both ends of a signal chain — from LTE protocols and network topologies to the dashboards and pipelines that turn raw operational data into decisions people can act on.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">See the work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="hero-meta">
+        <a href="mailto:vshah6251@gmail.com">vshah6251@gmail.com</a>
+        <span class="meta-sep">/</span>
+        <a href="tel:+919997676865">+91&nbsp;99976&nbsp;76865</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/varun-shah-5a2b922b0" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Hribhu" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="portrait-frame">
+        <div class="bar-tick t1"></div>
+        <div class="bar-tick t2"></div>
+        <div class="bar-tick t3"></div>
+        <div class="bar-tick t4"></div>
+        <div class="bar-tick t5"></div>
+        <img src="varun-portrait.jpg" alt="Varun Shah portrait" class="portrait-img">
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <canvas id="waveCanvas"></canvas>
+    <div class="wave-caption">
+      <span>SIGNAL</span>
+      <div class="wave-caption-line"></div>
+      <span>INSIGHT</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-inner about-grid">
+    <div class="about-label-col">
+      <p class="section-label">01 / About</p>
+      <div class="about-photo">
+        <img src="varun-beach.jpg" alt="Varun Shah">
+        <p class="photo-cap">Off the clock — Odisha coastline</p>
+      </div>
+    </div>
+    <div class="about-copy">
+      <h2 class="section-heading">A telecom engineer who kept following the signal — until it turned into data.</h2>
+      <p>I'm currently completing my B.Tech in Electronics &amp; Telecommunication at KIIT, Bhubaneswar, where the coursework on communication systems and networking gave me a genuine feel for how information moves — through fibre, over LTE, across a switching stack. That grounding turned out to be the best possible entry point into analytics: both disciplines are, at their core, about extracting a clean signal out of noisy data.</p>
+      <p>Over the last two years I've split my time between telecom infrastructure work — studying transmission techniques, optical fibre, and 2G/3G/4G/LTE architecture at BSNL — and building full-stack analytics tools, most recently a supply-chain intelligence dashboard for Bharti Airtel that turned scattered spreadsheets into a live operational health score. I like problems that sit at that intersection: systems with a lot of moving parts, where the job is to make the important part visible.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Internships<br>Airtel, EvePaper &amp; BSNL</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">End-to-end analytics<br>pipelines shipped</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section experience" id="experience">
+  <div class="section-inner">
+    <p class="section-label">02 / Experience</p>
+    <h2 class="section-heading">Where the work has happened</h2>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <article class="tl-item">
+        <div class="tl-node"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <div>
+              <h3>SCM Intern</h3>
+              <p class="tl-org">Bharti Airtel Limited — Gurgaon</p>
+            </div>
+            <span class="tl-date">May 2026 – Jul 2026</span>
+          </div>
+          <p>Built a Supply Chain Analytics Dashboard from the ground up using HTML, CSS, JavaScript and a Node.js/Express backend, designed to take in real-world SCM data straight from Excel, CSV and PDF uploads with no manual reformatting required. The system automatically flags inventory risk, vendor SLA breaches and delayed shipments, rolling everything up into a live SCM Health Score and a set of efficiency KPIs the team could check at a glance.</p>
+          <p>Structured the tool as a seven-tab dashboard — Overview, Alerts, Charts, Data Tables, PO Analytics, Data Quality and SCM Insights — covering purchase-order tracking, open-PO monitoring, transit-stock management and smart procurement recommendations in one place. Also built out a data-quality layer with completeness checks, duplicate detection and missing-cell analysis, alongside insight modules for master-sheet tracking, monthly consumption trends and stock-report analysis.</p>
+          <div class="tl-tags">
+            <span>HTML/CSS/JS</span><span>Node.js</span><span>Express</span><span>Data Quality</span><span>KPI Design</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-node"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <div>
+              <h3>Business Development Intern</h3>
+              <p class="tl-org">EvePaper — New Delhi (Remote)</p>
+            </div>
+            <span class="tl-date">Oct 2025 – Jan 2026</span>
+          </div>
+          <p>Worked on the commercial side of the business, identifying new opportunities across potential customers, partnerships and markets to help drive company growth. Backed that up with ongoing research into market trends and industry data, pinpointing the areas with the highest potential for expansion.</p>
+          <p>Built and maintained strong working relationships with key stakeholders — customers, partners and suppliers alike — while developing and executing sales strategies aligned to the company's broader goals. Personally negotiated and closed deals with new customers and partners, and worked closely with the marketing, product and operations teams to make sure every new opportunity was fully leveraged rather than left on the table.</p>
+          <div class="tl-tags">
+            <span>Business Development</span><span>Market Research</span><span>Sales Strategy</span><span>Stakeholder Management</span><span>Negotiation</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-node"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <div>
+              <h3>Vocational Trainee</h3>
+              <p class="tl-org">Bharat Sanchar Nigam Limited — Bhubaneswar</p>
+            </div>
+            <span class="tl-date">May 2025 – Jun 2025</span>
+          </div>
+          <p>Built working knowledge of switching systems and the transmission techniques that carry telecom traffic across network infrastructure, alongside a close look at optical fibre communication and how broadband networks are architected end to end.</p>
+          <p>Designed and analysed multiple network topologies in Cisco Packet Tracer, and developed core competency in 2G/3G/4G/LTE mobile network architecture and protocols — the foundation that later made real-world systems thinking, like the Airtel SCM dashboard, feel intuitive rather than abstract.</p>
+          <div class="tl-tags">
+            <span>Cisco Packet Tracer</span><span>Optical Fibre</span><span>LTE Architecture</span><span>Network Topology</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section projects" id="projects">
+  <div class="section-inner">
+    <p class="section-label">03 / Projects</p>
+    <h2 class="section-heading">Things I've built end to end</h2>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Customer Purchase Behavior Analysis</h3>
+          <p class="project-stack">Python · MySQL · Power BI</p>
+        </div>
+        <p>An end-to-end shopping-behaviour analysis pipeline built across 3,900 transactions and 18 attributes. Cleaned the raw data and engineered features with pandas — imputing 37 missing values, segmenting customers, and running more than 10 targeted business queries against a MySQL backend.</p>
+        <p>Closed the loop with an interactive Power BI dashboard surfacing revenue trends, subscription behaviour and core KPIs, built to support real business recommendations rather than just describe the data.</p>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Atmospheric Monitoring System</h3>
+          <p class="project-stack">Raspberry Pi · ML · Python · ThingSpeak</p>
+        </div>
+        <p>A real-time atmospheric monitoring rig on a Raspberry Pi 4B, integrating DHT11, MQ135 and LDR sensors with an I2C LCD readout for on-device display. On top of the sensor stack, I trained a logistic regression classifier over temperature, humidity, light and gas-concentration features, reaching 89.5% classification accuracy.</p>
+        <p>Streamed five environmental parameters to ThingSpeak IoT every 15 seconds for live cloud visualization, historical trend analysis and remote monitoring — a small, complete hardware-to-cloud loop.</p>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Banking Customer Insights &amp; Risk Segmentation</h3>
+          <p class="project-stack">Python · MySQL · Power BI</p>
+        </div>
+        <p>An end-to-end banking analytics pipeline analysing 3,000 customer records across 25 attributes spanning income, loans, deposits and credit exposure. Handled data cleaning, income-band segmentation and correlation analysis with pandas and Seaborn on data pulled via MySQL, surfacing patterns across nationality, occupation and risk weighting.</p>
+        <p>Delivered as an interactive Power BI dashboard visualising customer demographics, loyalty classification and financial KPIs — built to support risk assessment and business decision-making.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills" id="skills">
+  <div class="section-inner">
+    <p class="section-label">04 / Skills</p>
+    <h2 class="section-heading">Signal strength, by stack</h2>
+    <p class="skills-intro">A quick read on where I spend the most time versus where I'm comfortable and still growing.</p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <ul class="skill-list">
+          <li><span>JavaScript</span><span class="bars" data-level="5"></span></li>
+          <li><span>Python</span><span class="bars" data-level="5"></span></li>
+          <li><span>SQL</span><span class="bars" data-level="4"></span></li>
+          <li><span>HTML / CSS</span><span class="bars" data-level="5"></span></li>
+          <li><span>C</span><span class="bars" data-level="3"></span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks</h3>
+        <ul class="skill-list">
+          <li><span>Node.js</span><span class="bars" data-level="4"></span></li>
+          <li><span>Express.js</span><span class="bars" data-level="4"></span></li>
+          <li><span>ReactJS</span><span class="bars" data-level="3"></span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; Tools</h3>
+        <ul class="skill-list">
+          <li><span>MongoDB</span><span class="bars" data-level="3"></span></li>
+          <li><span>MySQL</span><span class="bars" data-level="4"></span></li>
+          <li><span>Power BI</span><span class="bars" data-level="5"></span></li>
+          <li><span>Git &amp; GitHub</span><span class="bars" data-level="4"></span></li>
+          <li><span>Postman</span><span class="bars" data-level="3"></span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Engineering</h3>
+        <ul class="skill-list">
+          <li><span>MATLAB</span><span class="bars" data-level="3"></span></li>
+          <li><span>KiCAD</span><span class="bars" data-level="2"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="section credentials" id="credentials">
+  <div class="section-inner">
+    <p class="section-label">05 / Credentials</p>
+    <div class="credentials-grid">
+      <div>
+        <h2 class="section-heading small">Education</h2>
+        <div class="edu-item">
+          <h3>Kalinga Institute of Industrial Technology</h3>
+          <p class="edu-meta">B.Tech, Electronics &amp; Telecommunication · Bhubaneswar, Odisha · 2023 – 2027</p>
+        </div>
+        <div class="edu-item">
+          <h3>Shirdi Sai Public School</h3>
+          <p class="edu-meta">Higher Secondary &amp; Secondary Schooling · Moradabad, Uttar Pradesh · 2020 – 2022</p>
+        </div>
+
+        <h2 class="section-heading small mt">Positions of Responsibility</h2>
+        <ul class="plain-list">
+          <li>Placement Coordinator — Industry Engagement</li>
+          <li>Volunteer — NSS SoEE Lakshya</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="section-heading small">Certifications</h2>
+        <ul class="cert-list">
+          <li>
+            <span class="cert-name">Power BI</span>
+            <span class="cert-org">EXCELR — 60 Hours</span>
+          </li>
+          <li>
+            <span class="cert-name">Foundation of Machine Learning to Design AI Systems using Python</span>
+            <span class="cert-org">STTP, NIT Silchar</span>
+          </li>
+          <li>
+            <span class="cert-name">VLSI Design Trainee — RTL to GDS-II</span>
+            <span class="cert-org">NIELET NOIDA — 90 Hours</span>
+          </li>
+          <li>
+            <span class="cert-name">McKinsey Forward Program</span>
+            <span class="cert-org">McKinsey.org</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="section-inner contact-inner">
+    <p class="section-label">06 / Contact</p>
+    <h2 class="contact-heading">Let's build the next thing.</h2>
+    <p class="contact-sub">Open to internships, full-stack &amp; analytics roles, and anything that sits between hardware and data.</p>
+    <div class="contact-links">
+      <a href="mailto:vshah6251@gmail.com" class="contact-link">
+        <span class="cl-label">Email</span>
+        <span class="cl-value">vshah6251@gmail.com</span>
+      </a>
+      <a href="tel:+919997676865" class="contact-link">
+        <span class="cl-label">Phone</span>
+        <span class="cl-value">+91 99976 76865</span>
+      </a>
+      <a href="https://www.linkedin.com/in/varun-shah-5a2b922b0" target="_blank" rel="noopener" class="contact-link">
+        <span class="cl-label">LinkedIn</span>
+        <span class="cl-value">/in/varun-shah</span>
+      </a>
+      <a href="https://github.com/Hribhu" target="_blank" rel="noopener" class="contact-link">
+        <span class="cl-label">GitHub</span>
+        <span class="cl-value">/Hribhu</span>
+      </a>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>Varun Shah · Bhubaneswar, Odisha, India</p>
+    <p>Built from scratch, signal to insight.</p>
+  </footer>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
