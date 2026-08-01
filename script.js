@@ -1,3 +1,80 @@
+// ===== LOADER: typewriter name reveal, then fade out =====
+(function () {
+    const loader = document.getElementById('loader');
+    const loaderText = document.getElementById('loaderText');
+    const loaderFill = document.getElementById('loaderFill');
+    const name = 'Varun Shah';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.documentElement.classList.add('is-loading');
+
+    function hideLoader() {
+        loader.classList.add('loader-hidden');
+        document.documentElement.classList.remove('is-loading');
+        setTimeout(() => loader.remove(), 700);
+    }
+
+    if (reduced) {
+        loaderText.textContent = name;
+        loaderFill.style.width = '100%';
+        setTimeout(hideLoader, 350);
+        return;
+    }
+
+    let i = 0;
+    function typeName() {
+        if (i <= name.length) {
+            loaderText.textContent = name.slice(0, i);
+            loaderFill.style.width = (i / name.length) * 100 + '%';
+            i++;
+            setTimeout(typeName, 95);
+        } else {
+            setTimeout(hideLoader, 550);
+        }
+    }
+    setTimeout(typeName, 300);
+})();
+
+// ===== Heading typewriter: types out each heading as it scrolls into view =====
+(function () {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const headings = document.querySelectorAll('.section-heading, .contact-heading');
+
+    if (reduced || !('IntersectionObserver' in window)) return;
+
+    headings.forEach(el => {
+        el.dataset.fullText = el.textContent;
+        el.textContent = '';
+    });
+
+    function typeHeading(el) {
+        const text = el.dataset.fullText;
+        const speed = Math.max(16, Math.min(34, 900 / text.length));
+        let idx = 0;
+        el.classList.add('type-cursor');
+        (function step() {
+            el.textContent = text.slice(0, idx);
+            idx++;
+            if (idx <= text.length) {
+                setTimeout(step, speed);
+            } else {
+                el.classList.remove('type-cursor');
+            }
+        })();
+    }
+
+    const headingIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                headingIO.unobserve(entry.target);
+                typeHeading(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    headings.forEach(el => headingIO.observe(el));
+})();
+
 // ===== NAV: scroll state + mobile toggle =====
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
