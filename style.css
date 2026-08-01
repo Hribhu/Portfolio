@@ -23,8 +23,8 @@
   --container: 1180px;
 }
 
-*{ box-sizing: border-box; margin:0; padding:0; }
-html{ scroll-behavior: smooth; }
+*{ box-sizing: border-box; margin:0; padding:0; -webkit-tap-highlight-color: transparent; }
+html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body{
   background: transparent;
   color: var(--text);
@@ -32,10 +32,12 @@ body{
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   position: relative;
 }
-html{ background: var(--bg); }
-a{ color: inherit; text-decoration: none; }
+html{ background: var(--bg); overflow-x: hidden; }
+a{ color: inherit; text-decoration: none; touch-action: manipulation; }
+button{ touch-action: manipulation; }
 ul{ list-style: none; }
 img{ max-width: 100%; display: block; }
 
@@ -171,6 +173,11 @@ html.is-loading, html.is-loading body{ overflow: hidden; height: 100%; }
 @media (max-width: 480px){
   .loader-name{ white-space: normal; }
 }
+@media (max-height: 480px){
+  .loader-tag{ margin-bottom: 10px; }
+  .loader-role{ display: none; }
+  .loader-bar{ margin-top: 18px; }
+}
 
 /* focus visibility */
 a:focus-visible, button:focus-visible{
@@ -218,13 +225,17 @@ a:focus-visible, button:focus-visible{
 }
 .nav-cta::after{ display:none; }
 .nav-cta:hover{ border-color: var(--amber); background: var(--amber-dim); }
-.nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; }
+.nav-toggle{
+  display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer;
+  padding: 12px; margin: -12px;
+}
 .nav-toggle span{ width:22px; height:2px; background: var(--text); }
 
 /* ============ HERO ============ */
 .hero{
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex; flex-direction: column; justify-content: center;
   padding: 140px 32px 0;
   background:
@@ -300,7 +311,7 @@ a:focus-visible, button:focus-visible{
   display: flex; gap: 26px; margin-top: 16px; flex-wrap: wrap;
 }
 .social-icon{
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 8px; padding: 4px 2px;
   font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
   border-bottom: 1px solid transparent; padding-bottom: 2px;
   transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
@@ -561,6 +572,14 @@ a:focus-visible, button:focus-visible{
 @media (max-width: 700px){
   .tl-tags span{ font-size: 11px; padding: 4px 9px; }
   .hero-social{ flex-wrap: wrap; row-gap: 8px; }
+}
+/* tablet portrait (iPad-class devices) */
+@media (max-width: 768px){
+  .section{ padding: 100px 26px; }
+  .hero{ padding-left: 26px; padding-right: 26px; }
+  .about-stats{ gap: 30px; }
+  .timeline{ padding-left: 30px; }
+  .tl-node{ left: -30px; }
 }
 @media (max-width: 560px){
   .section{ padding: 90px 22px; }
