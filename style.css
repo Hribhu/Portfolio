@@ -238,11 +238,74 @@ a:focus-visible, button:focus-visible{
   min-height: 100svh;
   display: flex; flex-direction: column; justify-content: center;
   padding: 140px 32px 0;
+  overflow: hidden;
   background:
     radial-gradient(ellipse 900px 500px at 85% 10%, rgba(69,217,196,0.07), transparent 60%),
     radial-gradient(ellipse 700px 500px at 10% 90%, rgba(240,169,78,0.06), transparent 60%);
 }
+
+/* ---- Mini rockets drifting through the hero ---- */
+.rocket-field{
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+.rocket{
+  position: absolute; width: 26px; height: 26px; opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(69,217,196,0.25));
+}
+.r-flame{ fill: var(--amber); opacity: 0.85; }
+.r-hull{ fill: #C9CEDB; opacity: 0.9; }
+.r-window{ fill: var(--teal); }
+.r-fin{ fill: var(--text-faint); opacity: 0.9; }
+
+.rocket-1{
+  top: 62%; left: -6%;
+  animation: fly-rocket-1 17s linear infinite;
+  animation-delay: 0.5s;
+}
+.rocket-2{
+  top: 8%; left: -8%;
+  width: 20px; height: 20px;
+  animation: fly-rocket-2 22s linear infinite;
+  animation-delay: 6s;
+}
+.rocket-3{
+  top: 82%; right: -8%;
+  width: 22px; height: 22px;
+  animation: fly-rocket-3 25s linear infinite;
+  animation-delay: 12s;
+}
+
+@keyframes fly-rocket-1{
+  0%{ transform: translate(0, 0) rotate(38deg) scale(0.9); opacity: 0; }
+  8%{ opacity: 0.85; }
+  50%{ transform: translate(58vw, -34vh) rotate(38deg) scale(1); }
+  92%{ opacity: 0.85; }
+  100%{ transform: translate(118vw, -68vh) rotate(38deg) scale(0.9); opacity: 0; }
+}
+@keyframes fly-rocket-2{
+  0%{ transform: translate(0, 0) rotate(58deg) scale(0.8); opacity: 0; }
+  10%{ opacity: 0.7; }
+  55%{ transform: translate(66vw, 46vh) rotate(52deg) scale(0.95); }
+  90%{ opacity: 0.7; }
+  100%{ transform: translate(122vw, 78vh) rotate(52deg) scale(0.8); opacity: 0; }
+}
+@keyframes fly-rocket-3{
+  0%{ transform: translate(0, 0) rotate(-140deg) scale(0.85); opacity: 0; }
+  9%{ opacity: 0.75; }
+  50%{ transform: translate(-64vw, -30vh) rotate(-146deg) scale(1); }
+  91%{ opacity: 0.75; }
+  100%{ transform: translate(-124vw, -56vh) rotate(-150deg) scale(0.85); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .rocket{ display: none; }
+}
+@media (max-width: 700px){
+  .rocket{ width: 18px; height: 18px; }
+  .rocket-2{ width: 15px; height: 15px; }
+  .rocket-3{ width: 16px; height: 16px; }
+}
 .hero-inner{
+  position: relative; z-index: 2;
   max-width: var(--container); margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center;
 }
@@ -279,14 +342,20 @@ a:focus-visible, button:focus-visible{
 @media (prefers-reduced-motion: reduce){
   .hero-title{ animation: none; background-position: 0% center; }
 }
-.hero-role{
-  font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(19px, 2.4vw, 26px); color: var(--text-dim);
-  margin-bottom: 24px; line-height: 1.35;
+.hero-statement{
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(19px, 2.3vw, 25px); color: var(--text);
+  letter-spacing: 0.3px; text-transform: uppercase;
+  margin-bottom: 18px; line-height: 1.35;
 }
 .hero-desc{
-  max-width: 480px; color: var(--text-dim); font-size: 16.5px; margin-bottom: 36px;
+  max-width: 480px; color: var(--text-dim); font-size: 16.5px; margin-bottom: 18px;
 }
+.hero-focus{
+  font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
+  letter-spacing: 0.4px; margin-bottom: 36px;
+}
+.focus-sep{ color: var(--teal); margin: 0 6px; }
 .hero-actions{ display: flex; gap: 14px; margin-bottom: 32px; flex-wrap: wrap; }
 .btn{
   font-family: var(--font-mono); font-size: 13.5px; padding: 14px 26px;
@@ -596,7 +665,7 @@ a:focus-visible, button:focus-visible{
   .nav-inner{ padding: 0 18px; }
   .hero{ padding: 110px 18px 0; }
   .hero-title{ font-size: clamp(40px, 12vw, 52px); letter-spacing: -1px; }
-  .hero-role{ font-size: 18px; }
+  .hero-statement{ font-size: 18px; }
   .section{ padding: 76px 18px; }
   .section-heading{ font-size: 26px; }
   .contact-heading{ font-size: 34px; }
